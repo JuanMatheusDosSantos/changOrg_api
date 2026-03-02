@@ -36,6 +36,6 @@ class Petition extends Model
 
     function file()
     {
-        return $this->hasOne(File::class);
+        return $this->hasMany(File::class);
     }
 }

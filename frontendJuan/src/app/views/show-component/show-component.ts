@@ -49,12 +49,17 @@ export class ShowComponent implements OnInit {
     }
   }
 
-  getImagenUrl(): string {
+  getImagenUrl(): string | [] {
+    let file;
     const pet = this.peticion();
-    console.log('Datos de la petición en imagen:', pet); // <--- AÑADE ESTO
+    console.log('Datos de la petición en imagen:', pet?.files?.[0]); // <--- AÑADE ESTO
 
+    let finalUrl:[]|any=[]
     if (pet && pet.files && pet.files.length > 0) {
-      const finalUrl = `http://localhost:8000/storage/assets/img/petitions/${pet.files[0].file_path.replace('storage/', '')}`;
+      for (file of pet.files )
+      {
+        finalUrl = [...finalUrl,`http://localhost:8000/storage/assets/img/petitions/${file.file_path.replace('storage/', '')}`];
+      }
       console.log('URL Generada:', finalUrl); // <--- Y ESTO
       return finalUrl;
     }

@@ -13,9 +13,9 @@ class PetitionController extends Controller
 {
     public function index()
     {
-       // $count = Petition::all()->count();
+        // $count = Petition::all()->count();
 //        $petitions = Petition::paginate(10);
-        $petitions = Petition::with('file',"user")->get();
+        $petitions = Petition::with('file', "user")->get();
         return response()->json($petitions, 200);
     }
 
@@ -28,7 +28,7 @@ class PetitionController extends Controller
     function show($id)
     {
         try {
-            $petition = Petition::with('file',"user")->findOrFail($id);
+            $petition = Petition::with('file', "user")->findOrFail($id);
         } catch (\Exception $e) {
             return response()->json(["message" => "error", "no se ha podido encontrar la peticion"], 404);
         }
@@ -57,16 +57,17 @@ class PetitionController extends Controller
                 "category" => "required|exists:categories,id",
                 "signers" => "numeric|min:0",
                 "status" => "required|in:accepted,pending",
-                "image" => "nullable|file|mimes:jpg,jpeg,png,webp"
+//                "image" => "nullable|file|mimes:jpg,jpeg,png,webp"
+                "files[]" => "nullable|array"
             ]);
         } catch (\Exception $e) {
-            return response()->json(["message" => "error", "la validación ha fallado, por favor, introduce correctamente los datos"], 400);
-//            return response()->json(["message" => "error", $e->getMessage()], 400);
+//            return response()->json(["message" => "error", "la validación ha fallado, por favor, introduce correctamente los datos"], 400);
+            return response()->json(["message" => "error", $e->getMessage()], 400);
         }
         try {
             $petition = Petition::findOrFail($id);
-        }catch (\Exception $e){
-            return response()->json(["hubo un error"],401);
+        } catch (\Exception $e) {
+            return response()->json(["hubo un error"], 401);
         }
         // Autorización (Policy)
 //        $this->authorize('update', $petition);
@@ -79,14 +80,16 @@ class PetitionController extends Controller
             }
             try {
                 if (!is_null($request->image))
-                    $this->fileReUpload($request, $petition->id);{
-                }
+                    $this->fileReUpload($request, $petition->id);
+                if (!is_null($request->image))
+                    $this->fileReUpload($request, $petition->id);
             } catch (\Exception $e) {
                 return response()->json([
                     "message" => "error",
                     "error" => $e->getMessage(),
                     "line" => $e->getLine(),
-                    "file" => $e->getFile(),
+//                    "file" => $e->getFile(),
+                    "files" => $e->getFile(),
                     "trace" => $e->getTraceAsString(),
                 ], 400);
             }
@@ -180,13 +183,14 @@ class PetitionController extends Controller
                 "description" => "required",
                 "destinatary" => "required",
                 "category" => "required",
-                "image" => "nullable|file|mimes:jpg,jpeg,png,webp"
+//                "image" => "nullable|file|mimes:jpg,jpeg,png,webp"
+                "files" => "nullable|array"
             ]);
         } catch (\Exception $e) {
             return response()->json([
                 "message" => "error",
-                "la validación ha fallado, por favor, introduce correctamente los datos"
-//                $e->getMessage()
+//                "la validación ha fallado, por favor, introduce correctamente los datos"
+                $e->getMessage(),
             ], 400);
         }
 
@@ -205,7 +209,8 @@ class PetitionController extends Controller
                 "signers" => 0,
                 "status" => "pending"
             ]);
-            if ($request->hasFile("image")) {
+//            if ($request->hasFile("image")) {
+            if ($request->hasFile("files")) {
 
                 $response = $this->fileUpload($request, $petition->id);
                 if (!$response) {
@@ -218,7 +223,7 @@ class PetitionController extends Controller
         } catch (\Exception $e) {
             return response()->json(['message' => "error",
 //                'se ha producido un error a la hora de crear la peticion'
-            $e->getMessage()
+                $e->getMessage(),$request->files
             ],
                 400);
         }
@@ -239,45 +244,51 @@ class PetitionController extends Controller
 
     private function fileUpload(Request $request, $id = null)
     {
-        $image = null;
-        if ($request->hasFile("image")) {
-            $image = time() . '.' . $request->image->extension();
-            $path = public_path('storage\assets\img\petitions');
-            $pathName = pathinfo($request->file("image")->getClientOriginalName(), PATHINFO_FILENAME);
-            $temp = $request->file("image")->getPathname();
-            if (!copy($temp, $path . DIRECTORY_SEPARATOR . $image)) {
-                return false; // Error al copiar
+//        try{
+            $image = null;
+//        if ($request->hasFile("image")) {
+            if ($request->hasFile("files")) {
+                foreach ($request->file("files") as $imaged) {
+                    $image = time() .$imaged->getFilename(). '.' . $imaged->extension();
+                    $path = public_path('storage\assets\img\petitions');
+                    $pathName = pathinfo($imaged->getClientOriginalName(), PATHINFO_FILENAME);
+                    $temp = $imaged->getPathname();
+                    if (!copy($temp, $path . DIRECTORY_SEPARATOR . $image)) {
+                        return false; // Error al copiar
+                    }
+                    // Asociar archivo a la petición
+                    $petition = Petition::findOrFail($id);
+                    $petition->file()->create([
+                        'name' => $pathName,
+                        'file_path' => $image,
+                        'petition_id' => $id
+                    ]);
+                }
+                return true;
             }
-
-            // Asociar archivo a la petición
-            $petition = Petition::findOrFail($id);
-            $petition->file()->create([
-                'name' => $pathName,
-                'file_path' => $image,
-                'petition_id' => $id
-            ]);
-            return true;
-        }
+//        }catch (\Exception $e) {
+//            return response()->json($e->getMessage(),400);
+//        }
         return false;
     }
 
-function sign($id)
-{
+    function sign($id)
+    {
 
-    try {
-        $petition = Petition::findOrFail($id);
-        $userId = Auth::id();
-        if (!$petition->userSigners->contains(Auth::id())) {
-            $petition->userSigners()->attach($userId);
-            $petition->signers = $petition->signers + 1;
-        } else {
-            $petition->userSigners()->detach($userId);
-            $petition->signers = $petition->signers - 1;
+        try {
+            $petition = Petition::findOrFail($id);
+            $userId = Auth::id();
+            if (!$petition->userSigners->contains(Auth::id())) {
+                $petition->userSigners()->attach($userId);
+                $petition->signers = $petition->signers + 1;
+            } else {
+                $petition->userSigners()->detach($userId);
+                $petition->signers = $petition->signers - 1;
+            }
+            $petition->save();
+        } catch (\Exception $e) {
+            return back()->withError($e->getMessage())->withInput();
         }
-        $petition->save();
-    } catch (\Exception $e) {
-        return back()->withError($e->getMessage())->withInput();
+        return redirect()->back();
     }
-    return redirect()->back();
-}
 }
