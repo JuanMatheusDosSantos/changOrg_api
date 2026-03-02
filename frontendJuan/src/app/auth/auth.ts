@@ -1,6 +1,6 @@
 import { inject, Injectable, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, finalize, tap } from 'rxjs';
+import {BehaviorSubject, catchError, finalize, of, switchMap, tap} from 'rxjs';
 import { LoginResponse, User } from './auth.model';
 import { Router } from '@angular/router';
 @Injectable({ providedIn: 'root' })
@@ -16,7 +16,26 @@ export class AuthService {
 
 
   constructor(private http: HttpClient) {}
+  initSession() {
+    const token = this.getAccessToken();
+    if (!token) return;
 
+    // Intentamos refrescar primero, luego cargamos el perfil
+    this.refreshToken().pipe(
+      catchError(() => {
+        this.limpiarSesionLocal();
+        return of(null);
+      }),
+      switchMap(res => {
+        if (!res) return of(null);
+        return this.getProfile();
+      }),
+      catchError(() => {
+        this.limpiarSesionLocal();
+        return of(null);
+      })
+    ).subscribe();
+  }
 
   login(credentials: { email: string; password: string }) {
     return this.http
