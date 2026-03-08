@@ -79,10 +79,18 @@ class PetitionController extends Controller
                 $petition->description = $request->description;
             }
             try {
-                if (!is_null($request->image))
-                    $this->fileReUpload($request, $petition->id);
-                if (!is_null($request->image))
-                    $this->fileReUpload($request, $petition->id);
+//                if (!is_null($request->image))
+//                    $this->fileReUpload($request, $petition->id);
+//                if (!is_null($request->image))
+//                    $this->fileReUpload($request, $petition->id);
+                if ($request->hasFile("files")) {
+                    $response = $this->fileReUpload($request, $petition->id);
+                    if (!$response) {
+                        return response()->json(["message" => 'error', 'No se pudo subir la imagen'], 400);
+                    }
+                } else {
+
+                }
             } catch (\Exception $e) {
                 return response()->json([
                     "message" => "error",
@@ -131,44 +139,76 @@ class PetitionController extends Controller
         ], 200);
     }
 
+//    function fileReUpload(Request $request, $id)
+//    {
+//        try {
+//            $imagenOriginal = File::where("petition_id", $id)->first();
+//            $original = public_path("/storage/assets/img/petitions/" . $imagenOriginal->file_path);
+//            if (FileFacade::exists($original)) {
+//                FileFacade::delete($original);
+//            }
+//            $image = time() . '.' . $request->image->extension();
+//            $path = public_path('\storage\assets\img\petitions');
+//            $pathName = pathinfo($request->file("image")->getClientOriginalName(), PATHINFO_FILENAME);
+//            $temp = $request->file("image")->getPathname();
+//            if (!copy($temp, $path . DIRECTORY_SEPARATOR . $image)) {
+//                return false;
+//            }
+//            $petition = Petition::findOrFail($id);
+//            if ($imagenOriginal) {
+//                $imagenOriginal->update([
+//                    "name" => $pathName,
+//                    "file_path" => $image
+//                ]);
+//            } else {
+//                $petition->file()->create([
+//                    'name' => $pathName,
+//                    'file_path' => $image,
+//                    'petition_id' => $id
+//                ]);
+//                return true;
+//            }
+//        } catch (\Exception $e) {
+//            return response()->json(["message" => "error",
+////                "ha ocurrido un error"
+//                $e->getMessage()
+//            ], 400);
+//        }
+//        return false;
+//    }
     function fileReUpload(Request $request, $id)
     {
-        try {
-            $imagenOriginal = File::where("petition_id", $id)->first();
-            $original = public_path("/storage/assets/img/petitions/" . $imagenOriginal->file_path);
-            if (FileFacade::exists($original)) {
-                FileFacade::delete($original);
+        if ($request->hasFile("files")) {
+            $existingFiles = File::where("petition_id", $id)->get();
+            foreach ($existingFiles as $existingFile) {
+                $original = public_path('/storage/assets/img/petitions/' . $existingFile->file_path);
+                if (FileFacade::exists($original)) {
+                    FileFacade::delete($original);
+                }
+                $existingFile->delete();
             }
-            $image = time() . '.' . $request->image->extension();
-            $path = public_path('\storage\assets\img\petitions');
-            $pathName = pathinfo($request->file("image")->getClientOriginalName(), PATHINFO_FILENAME);
-            $temp = $request->file("image")->getPathname();
-            if (!copy($temp, $path . DIRECTORY_SEPARATOR . $image)) {
-                return false;
-            }
-            $petition = Petition::findOrFail($id);
-            if ($imagenOriginal) {
-                $imagenOriginal->update([
-                    "name" => $pathName,
-                    "file_path" => $image
-                ]);
-            } else {
+
+            foreach ($request->file("files") as $imaged) {
+                $image = time() . $imaged->getFilename() . '.' . $imaged->extension();
+                $path = public_path('storage\assets\img\petitions');
+                $pathName = pathinfo($imaged->getClientOriginalName(), PATHINFO_FILENAME);
+                $temp = $imaged->getPathname();
+
+                if (!copy($temp, $path . DIRECTORY_SEPARATOR . $image)) {
+                    return false; // Error al copiar
+                }
+
+                $petition = Petition::findOrFail($id);
                 $petition->file()->create([
                     'name' => $pathName,
                     'file_path' => $image,
                     'petition_id' => $id
                 ]);
-                return true;
             }
-        } catch (\Exception $e) {
-            return response()->json(["message" => "error",
-//                "ha ocurrido un error"
-                $e->getMessage()
-            ], 400);
+            return true;
         }
         return false;
     }
-
 //    function create(Request $request)
 //    {
 //        $categories = Category::all();
