@@ -21,7 +21,7 @@ class PetitionController extends Controller
 
     public function getCategories()
     {
-        $categories = Category::all();
+        $categories = Category::withCount("petitions")->get();
         return response()->json($categories, 200);
     }
 

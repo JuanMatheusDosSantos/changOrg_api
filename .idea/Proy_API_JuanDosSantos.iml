@@ -8,6 +8,12 @@
       <sourceFolder url="file://$MODULE_DIR$/mybackend/tests" isTestSource="true" packagePrefix="Tests\" />
       <sourceFolder url="file://$MODULE_DIR$/mybackend/tests/Feature" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/mybackend/tests/Unit" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/app" isTestSource="false" packagePrefix="App\" />
+      <sourceFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/database/factories" isTestSource="false" packagePrefix="Database\Factories\" />
+      <sourceFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/database/seeders" isTestSource="false" packagePrefix="Database\Seeders\" />
+      <sourceFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/tests" isTestSource="true" packagePrefix="Tests\" />
+      <sourceFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/tests/Feature" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/tests/Unit" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/mybackend/bootstrap/cache" />
       <excludeFolder url="file://$MODULE_DIR$/mybackend/vendor/brick/math" />
       <excludeFolder url="file://$MODULE_DIR$/mybackend/vendor/carbonphp/carbon-doctrine-types" />
@@ -127,6 +133,122 @@
       <excludeFolder url="file://$MODULE_DIR$/mybackend/vendor/voku/portable-ascii" />
       <excludeFolder url="file://$MODULE_DIR$/mybackend/storage/app" />
       <excludeFolder url="file://$MODULE_DIR$/mybackend/storage/framework" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/brick/math" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/carbonphp/carbon-doctrine-types" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/dflydev/dot-access-data" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/doctrine/inflector" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/doctrine/lexer" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/dragonmantank/cron-expression" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/egulias/email-validator" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/fakerphp/faker" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/filp/whoops" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/fruitcake/php-cors" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/graham-campbell/result-type" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/guzzlehttp/guzzle" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/guzzlehttp/promises" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/guzzlehttp/psr7" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/guzzlehttp/uri-template" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/hamcrest/hamcrest-php" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/laravel/framework" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/laravel/pail" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/laravel/pint" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/laravel/prompts" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/laravel/sail" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/laravel/sanctum" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/laravel/serializable-closure" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/laravel/tinker" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/lcobucci/jwt" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/league/commonmark" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/league/config" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/league/flysystem" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/league/flysystem-local" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/league/mime-type-detection" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/league/uri" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/league/uri-interfaces" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/mockery/mockery" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/monolog/monolog" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/myclabs/deep-copy" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/namshi/jose" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/nesbot/carbon" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/nette/schema" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/nette/utils" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/nikic/php-parser" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/nunomaduro/collision" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/nunomaduro/termwind" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/phar-io/manifest" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/phar-io/version" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/php-open-source-saver/jwt-auth" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/phpoption/phpoption" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/phpunit/php-code-coverage" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/phpunit/php-file-iterator" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/phpunit/php-invoker" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/phpunit/php-text-template" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/phpunit/php-timer" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/phpunit/phpunit" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/psr/clock" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/psr/container" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/psr/event-dispatcher" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/psr/http-client" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/psr/http-factory" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/psr/http-message" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/psr/log" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/psr/simple-cache" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/psy/psysh" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/ralouphie/getallheaders" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/ramsey/collection" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/ramsey/uuid" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/sebastian/cli-parser" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/sebastian/code-unit" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/sebastian/code-unit-reverse-lookup" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/sebastian/comparator" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/sebastian/complexity" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/sebastian/diff" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/sebastian/environment" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/sebastian/exporter" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/sebastian/global-state" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/sebastian/lines-of-code" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/sebastian/object-enumerator" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/sebastian/object-reflector" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/sebastian/recursion-context" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/sebastian/type" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/sebastian/version" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/staabm/side-effects-detector" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/symfony/clock" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/symfony/console" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/symfony/css-selector" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/symfony/deprecation-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/symfony/error-handler" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/symfony/event-dispatcher" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/symfony/event-dispatcher-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/symfony/finder" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/symfony/http-foundation" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/symfony/http-kernel" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/symfony/mailer" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/symfony/mime" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/symfony/polyfill-ctype" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/symfony/polyfill-intl-grapheme" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/symfony/polyfill-intl-idn" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/symfony/polyfill-intl-normalizer" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/symfony/polyfill-mbstring" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/symfony/polyfill-php80" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/symfony/polyfill-php83" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/symfony/polyfill-php84" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/symfony/polyfill-php85" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/symfony/polyfill-uuid" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/symfony/process" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/symfony/routing" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/symfony/service-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/symfony/string" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/symfony/translation" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/symfony/translation-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/symfony/uid" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/symfony/var-dumper" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/symfony/yaml" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/theseer/tokenizer" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/tijsverkoyen/css-to-inline-styles" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/vlucas/phpdotenv" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel_ch_mon_juan_dossantos_api/mybackend/vendor/voku/portable-ascii" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
